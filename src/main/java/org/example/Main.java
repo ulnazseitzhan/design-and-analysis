@@ -3,6 +3,7 @@ package org.example;
 import java.io.*;
 import java.util.*;
 
+
 public class Main {
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -29,6 +30,8 @@ public class Main {
         testQuickSort();
         testDeterministicSelect();
         testClosestPairDemo();
+        System.out.println("Generating CSV automatically...");
+        generateCSV();
     }
 
     public static void testMergeSort() {
