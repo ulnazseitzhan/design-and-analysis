@@ -1,0 +1,33 @@
+# Divide & Conquer Algorithms — Analysis & Benchmark Report
+## 📌 Implemented Algorithms
+| Algorithm | Technique | Notes on Recursion Safety | 
+|--------------------|------------------------------|---------------------------| 
+| MergeSort | Divide & Conquer, Master Case 2 | Reusable buffer + cutoff to insertion sort |
+| QuickSort | Randomized pivot + tail recursion | Recurse on smaller side only | 
+| Deterministic Select (Median of Medians) | Group of 5 pivot selection | Recursing only into needed (smaller) side |
+| Closest Pair of Points (2D) | Plane sweep + strip check | At most 7 neighbor comparisons per point |
+## 🔧 Architecture & Recursion Safety
+| Feature | Technique |
+| Recursion depth tracking | AlgorithmMetrics.maxRecursionDepth |
+| Comparison counting | Incremented at each compare operation |
+| Allocation control | Reused buffers where possible (MergeSort) |
+| Tail recursion optimization | QuickSort iterates on the larger partition |
+
+## 📊 Time & Depth Measurements
+CSV file 
+Algorithm,Size,Time(ns),RecursionDepth,Comparisons,Allocations
+MergeSort,100,30000,3,625,1
+QuickSort,100,64200,4,735,0
+Select,100,23600,9,327,0
+ClosestPair,100,308200,6,136,1
+MergeSort,500,185900,5,4235,1
+QuickSort,500,355800,5,4750,0
+Select,500,67100,10,1467,0
+ClosestPair,500,1792800,8,553,1
+MergeSort,1000,399400,6,9336,1
+QuickSort,1000,703900,7,11435,0
+Select,1000,98300,12,2821,0
+ClosestPair,1000,3057500,9,1137,1
+MergeSort,5000,1255100,9,55283,1
+QuickSort,5000,784000,7,74739,0
+Select,5000,557600,15,16135,0
